@@ -25,19 +25,23 @@ NTERCHANGE for horIzoNtal TransfER CHAracterization in Non-assembled GEnome is p
   python3 -m pip install pandas # default Python 3
   python3.8 -m pip install pandas # specifically Python 3.8
   ```
+
 - [Pigz version 2.4](https://zlib.net/pigz/)
   - A tool for gzip that exploits multiple processors and multiple cores to the hilt when compressing data
   ```bash
     sudo apt-get install pigz
   ```
+
 - [GenomeTools versio 1.6.1](http://genometools.org/)
     - The GenomeTools genome analysis system is a free collection of bioinformatics tools
-    Installation using Ubuntu package management with following command, requires **root permissions**
+
     ```bash
+    # Installation using Ubuntu package management with following command, requires **root permissions**
     sudo apt-get install genometools
     ```
-    Installation with the source distribution
+
     ```
+    # Installation with the source distribution
     wget
     tar zxvf genometools-1.6.1.tar.gz
     cd genometools-1.6.1
@@ -63,3 +67,12 @@ require any non-core perl modules for processing
     ```bash
     sudo apt-get install diamond-aligner
     ```
+
+
+
+
+
+
+## <a name="uguide"></a>Users' Guide
+
+### <a name="install"></a>Installation
