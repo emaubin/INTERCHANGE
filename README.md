@@ -32,11 +32,11 @@ NTERCHANGE for horIzoNtal TransfER CHAracterization in Non-assembled GEnome is p
   ```
 - [GenomeTools versio 1.6.1](http://genometools.org/)
     - The GenomeTools genome analysis system is a free collection of bioinformatics tools
-    - Installation using Ubuntu package management with following command, requires **root permissions**
+    Installation using Ubuntu package management with following command, requires **root permissions**
     ```bash
     sudo apt-get install genometools
     ```
-    - Installation with the source distribution
+    Installation with the source distribution
     ```
     wget
     tar zxvf genometools-1.6.1.tar.gz
