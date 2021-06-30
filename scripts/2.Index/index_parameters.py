@@ -82,5 +82,5 @@ for key, value in dict_index.items():
     with open(paramfile, 'w') as filout:
         filout.write(f'{fa}\n{suffixindex}\n{indexmer}\n{kmersize}\n{gt_path}\n')
         filout.close()
-    os.system(f'python3 {prog_dir}/Pipeline_HT/scripts/2.Index/index.py -p {paramfile} &')
+    os.system(f'python3 {prog_dir}/INTERCHANGE-master/scripts/2.Index/index.py -p {paramfile} &')
     print(f"Job running : {key}")
