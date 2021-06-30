@@ -127,5 +127,5 @@ for key, value in dico_compare.items():
     with open(paramfile, 'w') as filout:
         filout.write(f'{indexmer}\n{query}\n{output}\n{kmersize}\n{kmercoord}\n{threshold}\n{readsize}\n{output_filter}\n{kmerreads}\n{prog_dir}\n{gt_path}\n')
         filout.close()
-    os.system(f'python3 {prog_dir}/INTERCHANGE-master/scripts/3.Search_identical_kmers/identical_kmers.py -p {paramfile} &')
+    os.system(f'python3 {prog_dir}/INTERCHANGE-V.1.0/scripts/3.Search_identical_kmers/identical_kmers.py -p {paramfile} &')
     print(f"Job running")
