@@ -126,7 +126,7 @@ while i < len(species_list):
     with open(paramfile, 'w') as filout:
         filout.write(f'{fq1}\n{fq2}\n{outfq1}\n{outfq2}\n{fa}\n{thread}\n{prog_dir}\n')
         filout.close()
-    os.system(f'python3 {prog_dir}/INTERCHANGE-master/scripts/1.Genome_format/format.py -p {paramfile} &')
+    os.system(f'python3 {prog_dir}/INTERCHANGE-V.1.0/scripts/1.Genome_format/format.py -p {paramfile} &')
     print(f"Job running : {species_list[i]}")
     i+=1
 
