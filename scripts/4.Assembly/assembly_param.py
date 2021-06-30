@@ -101,5 +101,5 @@ for key, value in dico_compare.items():
     with open(paramfile, 'w') as filout:
         filout.write(f'{prog_dir}\n{kmerreads}\n{good_reads}\n{reads}\n{threads}\n{output}\n{fa1}\n{fa2}\n{kspades}\n{prinseq_path}\n{spades_path}\n')
         filout.close()
-    os.system(f'python3 {prog_dir}/INTERCHANGE-master/scripts/4.Assembly/assembly.py -p {paramfile} &')
+    os.system(f'python3 {prog_dir}/INTERCHANGE-V.1.0/scripts/4.Assembly/assembly.py -p {paramfile} &')
     print(f"Job running : index = {key[0]} ; reads = {key[1]}")
