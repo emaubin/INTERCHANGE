@@ -102,7 +102,7 @@ for key, value in dico_compare.items():
     with open(paramfile, 'w') as filout:
         filout.write(f'{db}\n{query}\n{output}\n{threads}\n{output_sp}/all_species_comparisons.tab\n{output_blast}\n{blast_path}\n')
         filout.close()
-    os.system(f'python3 {prog_dir}/Pipeline_HT/scripts/6.Homologous_scaffolds/homologous_scfd.py -p {paramfile} &')
+    os.system(f'python3 {prog_dir}/INTERCHANGE-V.1.0/scripts/6.Homologous_scaffolds/homologous_scfd.py -p {paramfile} &')
     print(f"Job running : index = {key[0]} ; reads = {key[1]}")
 
 ##########################################################################################################################################
