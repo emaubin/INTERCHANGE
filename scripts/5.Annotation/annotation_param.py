@@ -113,7 +113,7 @@ for key, value in dico_compare.items():
     with open(paramfile, 'w') as filout:
         filout.write(f'{species}\n{fasta}\n{assembly}\n{output_Repbase}\n{output_mcr}\n{output_cdd}\n{output_otherDB}\n{threads}\n{prog_dir}\n{diamond_path}\n{blast_path}\n')
         filout.close()
-    os.system(f'python3 {prog_dir}/Pipeline_HT/scripts/5.Annotation/annotation.py -p {paramfile} &')
+    os.system(f'python3 {prog_dir}/INTERCHANGE-V.1.0/scripts/5.Annotation/annotation.py -p {paramfile} &')
     print(f"Job running : index = {key[0]} ; reads = {key[1]}")
 
 ##########################################################################################################################################
