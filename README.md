@@ -94,8 +94,8 @@ require any non-core perl modules for processing
     tar zxvf diamond-linux64.tar.gz
     ```
 
-- [BLAST](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
-  -
+- [ncbi blast+](https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&PAGE_TYPE=BlastDocs&DOC_TYPE=Download)
+  - A suite of command-line tools to run BLAST
 
   ```bash
   # Installation with Ubuntu/Debian
@@ -111,10 +111,40 @@ require any non-core perl modules for processing
   export PATH=$HOME/tools/BLAST/ncbi-blast-2.8.1+/bin:$PATH
   ```
 
-The pipeline has not been tested with other versions of the above programs, but newer versions probably work by checking that the options used are still working
+- [minimap2](https://github.com/lh3/minimap2)
+  - Minimap2 is a sequence alignment programm that aligns DNA or mRNA sequences against a large reference database.
+
+  ```bash
+  # Installation with Ubuntu/Debian
+  sudo apt-get install minimap2
+  ```
+
+  ```bash
+  # download Minimap2
+  curl -L https://github.com/lh3/minimap2/releases/download/v2.20/minimap2-2.20_x64-linux.tar.bz2
+  # decompress
+  tar -jxvf minimap2-2.20_x64-linux/minimap2
+  ```
+- [Samtools Version: 1.10](http://www.htslib.org/)
+  - Samtools is a suite of programs for interacting with high-throughput sequencing data
+
+  ```bash
+  # Installation with Ubuntu/Debian
+  sudo apt-get install samtools
+  ```
+
+  Or download Samtools [here](http://www.htslib.org/download/)
+  ```bash
+  cd samtools-1.x
+  ./configure --prefix=/where/to/install
+  make
+  make install
+  ```
+
+The pipeline has not been tested with other versions of the above programs, but newer versions probably work by checking that the options used still exist
 
 
-Hardware requirements: this pipeline is developed for Linux operating system
+Hardware requirements: this pipeline is developed for Linux/Unix operating system
 With the test dataset, we used:
     - x86-64 CPUs
     - 32 Go of system memory
@@ -129,8 +159,34 @@ In bash compatible terminal:
 
 ```bash
 # download INTERCHANGE version 1.0
-wget https://github.com/emaubin/INTERCHANGE/archive/main.zip
+wget https://github.com/emaubin/INTERCHANGE/archive/V.1.0.zip
 # decompress
-tar -zxvf INTERCHANGE_linux_v1.0.tar.gz
+unzip  V.1.0.zip
 ```
 ### <a name="usage"></a>Usage
+
+You must start by filling in the dependencies_paths.txt with the paths to each tool and databases used as indicated in the file. Then, run [step]_param.py scripts whose name start with numbers in the corresponding order. Adapting this pipeline to other datasets, hardware configuration, and automating all procedures require modifications to the code.
+To know the arguments needed for each step you can use the help for each script as follows:
+
+```bash
+python3 /INTERCHANGE-V.1.0/scripts/1.Genome_format/format_param.py -h
+"""
+usage: python3 format_param.py -i -p
+
+Script to prepare and format input data for INTERCHANGE
+
+Positional arguments:
+  -i TABLE             Input file containing Table of species.
+  -p PATHS             File of tools paths.
+
+Settings:
+  -t THREAD            Number of CPU for gzip/gunzip. Default [2]
+
+Output options:
+  -o OUTPUT_DIRECTORY  Output directory for INTERCHANGE results. Default: /INTERCHANGE_results in current directory
+
+Other:
+  -h, --help           Show this help message and exit.
+  -v, --version        Show program's version number and exit.
+"""
+```
