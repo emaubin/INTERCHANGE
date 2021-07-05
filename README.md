@@ -170,6 +170,8 @@ To know the arguments needed for each step you can use the help for each script 
 
 ```bash
 python3 /INTERCHANGE-V.1.0/scripts/1.Genome_format/format_param.py -h
+
+# Help message for Step 1
 """
 usage: python3 format_param.py -i -p
 
