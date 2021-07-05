@@ -18,6 +18,7 @@ NTERCHANGE for horIzoNtal TransfER CHAracterization in Non-assembled GEnome is a
 - Python3.8 with the following packages
   - [biopython version 1.78](https://biopython.org/)
   - [pandas version 1.2.0](https://pandas.pydata.org/)
+  - [numpy version 1.17.4](https://numpy.org/)
 
   ```bash
   # Command if you work with multiple version of Python installed in parallel
@@ -25,6 +26,8 @@ NTERCHANGE for horIzoNtal TransfER CHAracterization in Non-assembled GEnome is a
   python3.8 -m pip install biopython # specifically Python 3.8
   python3 -m pip install pandas # default Python 3
   python3.8 -m pip install pandas # specifically Python 3.8
+  python3 -m pip install numpy # default Python 3
+  python3.8 -m pip install numpy # specifically Python 3.8
   ```
 
 - [Pigz version 2.4](https://zlib.net/pigz/)
