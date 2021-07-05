@@ -205,7 +205,7 @@ Other:
 
 ### <a name="example"></a>Example
 
-Here, an example of all the command lines to run: <br/>
+Here, an example of all command lines to run: <br/>
 
 ```bash
 
