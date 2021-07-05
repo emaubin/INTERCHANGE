@@ -231,7 +231,6 @@ python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/6.Homologous_scaffolds/h
 ### Step 7
 python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/7.Annotation_table/annotation_table.py -i /media/emilie/massane/Test_pipeline_GitHub/fastq.tab.csv -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
 
-
 ### Step 8
 python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/8.Busco_genes/busco_identification_param.py -i /media/emilie/massane/Test_pipeline_GitHub/fastq.tab_2.csv -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
 
