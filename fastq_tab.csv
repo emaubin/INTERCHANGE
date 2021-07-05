@@ -1,0 +1,4 @@
+genus	species	type	tag	fastq1	fastq2
+Citrus	clementina	Tree	Cit	/media/NAS-LGDP/emilie/HT_massane/INTERCHANGE-V.1.0/Test_dataset/Citrus_clementina/Cclementina_reads_1.fq	/media/NAS-LGDP/emilie/HT_massane/INTERCHANGE-V.1.0/Test_dataset/Citrus_clementina/Cclementina_reads_2.fq
+Vitis	vinifera	Liana	Vit	/media/NAS-LGDP/emilie/HT_massane/INTERCHANGE-V.1.0/Test_dataset/Vitis_vinifera/Vvinifera_reads_1.fq	/media/NAS-LGDP/emilie/HT_massane/INTERCHANGE-V.1.0/Test_dataset/Vitis_vinifera/Vvinifera_reads_2.fq
+Phoenix	dactylifera	Tree	Pho	/media/NAS-LGDP/emilie/HT_massane/INTERCHANGE-V.1.0/Test_dataset/Phoenix_dactylifera/Pdactylifera_reads_2.fq	/media/NAS-LGDP/emilie/HT_massane/INTERCHANGE-V.1.0/Test_dataset/Phoenix_dactylifera/Pdactylifera_reads_1.fq
