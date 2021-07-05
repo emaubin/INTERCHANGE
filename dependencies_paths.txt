@@ -1,0 +1,20 @@
+############################## INTERCHANGE path ##############################
+/media/emilie/massane
+############################## GenomeTools path ##############################
+/usr/bin
+############################## PRINSEQ path ##################################
+/media/emilie/massane/INTERCHANGE-V.1.0/prinseq-lite-0.20.4
+############################## SPADes path####################################
+/media/emilie/massane/INTERCHANGE-V.1.0/SPAdes-3.15.2-Linux/bin
+############################## Diamond path ##################################
+/usr/bin
+############################## BLAST+ path ###################################
+/usr/bin
+############################## Minimap2 path #################################
+/usr/bin
+############################## Samtools path #################################
+/usr/bin
+############################## BUSCO DB path #################################
+/media/emilie/massane/update_busco_genes_massane
+############################## Databases path #################################
+/media/emilie/massane/INTERCHANGE-V.1.0
