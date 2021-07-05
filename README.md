@@ -149,6 +149,7 @@ The pipeline has not been tested with other versions of the above programs, but 
 
 Hardware requirements: this pipeline is developed for Linux/Unix operating system.
 
+
 With the test dataset, we used:
     - x86-64 CPUs
     - 32 Go of system memory
