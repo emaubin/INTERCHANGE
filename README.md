@@ -147,13 +147,13 @@ require any non-core perl modules for processing
 The pipeline has not been tested with other versions of the above programs, but newer versions probably work by checking that the options used still exist
 
 
-Hardware requirements: this pipeline is developed for Linux/Unix operating system.<br/>;
+Hardware requirements: this pipeline is developed for Linux/Unix operating system.<br/>
 
 
-With the test dataset, we used:<br/>;
-    - x86-64 CPUs<br/>;
-    - 32 Go of system memory<br/>;
-    - of free hard drive space<br/>;
+With the test dataset, we used:<br/>
+    - x86-64 CPUs<br/>
+    - 32 Go of system memory<br/>
+    - of free hard drive space<br/>
 
 
 ## <a name="uguide"></a>Users' Guide
