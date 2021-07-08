@@ -210,31 +210,31 @@ Here, an example of all command lines to run: <br/>
 ```bash
 
 ### Step 1
-python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/1.Genome_format/format_param.py -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -i /media/emilie/massane/Test_pipeline_GitHub/fastq.tab.csv -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/1.Genome_format/format_param.py -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -i fastq.tab.csv -o ~/HT_test_pipeline
 
 ### Step 2
-python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/2.Index/index_parameters.py -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/2.Index/index_parameters.py -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/HT_test_pipeline
 
 ### Step 3
-python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/3.Search_identical_kmers/identical_kmers_param.py -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/3.Search_identical_kmers/identical_kmers_param.py -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/media/emilie/massane/HT_test_pipeline
 
 ### Step 4
-python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/4.Assembly/assembly_param.py -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/4.Assembly/assembly_param.py -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/HT_test_pipeline
 
 ### Step 5
-python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/5.Annotation/annotation_param.py -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/5.Annotation/annotation_param.py -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/HT_test_pipeline
 
 ### Step 6
 
-python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/6.Homologous_scaffolds/homologous_scfd_param.py -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/6.Homologous_scaffolds/homologous_scfd_param.py -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/HT_test_pipeline
 
 ### Step 7
-python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/7.Annotation_table/annotation_table.py -i /media/emilie/massane/Test_pipeline_GitHub/fastq.tab.csv -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/7.Annotation_table/annotation_table.py -i fastq.tab.csv -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/HT_test_pipeline
 
 ### Step 8
-python3 /media/emilie/massane/INTERCHANGE-V.1.0/scripts/8.Busco_genes/busco_identification_param.py -i /media/emilie/massane/Test_pipeline_GitHub/fastq.tab_2.csv -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/8.Busco_genes/busco_identification_param.py -i fastq.tab_2.csv -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/HT_test_pipeline
 
 ### Step 9
-python3 media/emilie/massane/INTERCHANGE-V.1.0/scripts/9_High_similarity/high_similarity_param.py -p /media/emilie/massane/INTERCHANGE-V.1.0/dependencies_paths.txt -o /media/emilie/massane/HT_test_pipeline
+python3 ~/INTERCHANGE-V.1.0/scripts/9_High_similarity/high_similarity_param.py -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/HT_test_pipeline
 
 ```
