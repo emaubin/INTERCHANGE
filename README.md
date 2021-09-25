@@ -1,6 +1,6 @@
 # INTERCHANGE
 
-NTERCHANGE for horIzoNtal TransfER CHAracterization in Non-assembled GEnome is a pipeline for the detection of horizontal tranfers in non-assembled genomes by characterization of reads from conserved regions between 2 species.
+INTERCHANGE for horIzoNtal TransfER CHAracterization in Non-assembled GEnome is a pipeline for the detection of horizontal tranfers in non-assembled genomes by characterization of reads from conserved regions between 2 species.
 
 
 ## Table of Contents
