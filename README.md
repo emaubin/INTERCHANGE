@@ -153,7 +153,7 @@ Hardware requirements: this pipeline is developed for Linux/Unix operating syste
 With the test dataset, we used:<br/>
     - x86-64 CPUs<br/>
     - 32 Go of system memory<br/>
-    - >= 500 Go of free hard drive space<br/>
+    - >= 100 Go of free hard drive space (depending to the genomes size of the analyzed species) <br/>
 
 
 ## <a name="uguide"></a>Users' Guide
