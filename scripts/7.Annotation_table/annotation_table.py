@@ -21,9 +21,9 @@ start=time.time()
 today = date.today()
 day = today.strftime("%b_%d_%Y")
 
-def candidates_select(TAB):
-    os.system('''awk '$26!="N/A"' '''+TAB+'''|awk '$27>=80.0' |awk '$28>=1000' | grep -v "L1HS" | awk '$32=="GENE"'| awk -F "\t" '{split($18,a,"#");print $1"\t"$5"\t"a[4]"\t"$27"\t"$9"\t"$26}' | sort -k4,4nr > '''+TAB+'''_candidates_GENE.txt''')
-    os.system('''awk '$26!="N/A"' '''+TAB+'''|awk '$27>=80.0' |awk '$28>=1000' | grep -v "L1HS" | awk '$32=="TE"'| awk -F "\t" '{split($10,a,":");print $1"\t"$5"\t"a[4]"\t"$27"\t"$9"\t"$26}' | sort -k4,4nr > '''+TAB+'''_candidates_TE.txt''')
+def candidates_select(TAB, len_seq_selection):
+    os.system('''awk '$26!="N/A"' '''+TAB+'''|awk '$27>=80.0' |awk '$28>=' '''+len_seq_selection+''' | grep -v "L1HS" | awk '$32=="GENE"'| awk -F "\t" '{split($18,a,"#");print $1"\t"$5"\t"a[4]"\t"$27"\t"$9"\t"$26}' | sort -k4,4nr > '''+TAB+'''_candidates_GENE.txt''')
+    os.system('''awk '$26!="N/A"' '''+TAB+'''|awk '$27>=80.0' |awk '$28>=' '''+len_seq_selection+''' | grep -v "L1HS" | awk '$32=="TE"'| awk -F "\t" '{split($10,a,":");print $1"\t"$5"\t"a[4]"\t"$27"\t"$9"\t"$26}' | sort -k4,4nr > '''+TAB+'''_candidates_TE.txt''')
     return
 
 ##########################################################################################################################################
@@ -39,6 +39,7 @@ required_args.add_argument('-p',dest='paths',type=str,required=True, help='File 
 
 output_args = parser.add_argument_group("Output options")
 output_args.add_argument('-o',dest='output_directory',type=str,default=final_directory, help='Output directory for INTERCHANGE results. Default: /INTERCHANGE_results in current directory')
+output_args.add_argument('-l',dest='len_seq_selection',type=int,default=1000,help='The minimum length to select a candidate sequence. Default: 1 Kb')
 
 other_args = parser.add_argument_group('Other')
 other_args.add_argument('-h', '--help', action='help', default=argparse.SUPPRESS,help='Show this help message and exit')
@@ -49,6 +50,7 @@ args=parser.parse_args()
 Table=args.Table
 paths=args.paths
 output_dir=args.output_directory
+len_seq_selection=args.len_seq_selection
 
 output_sp=output_dir+'/species'
 if not os.path.exists(output_sp):
@@ -321,4 +323,4 @@ for key, value in dico_compare.items():
             i+=1
         filout.close()
 
-candidates_select(TABannotation)
+candidates_select(TABannotation,len_seq_selection)
