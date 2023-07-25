@@ -64,6 +64,12 @@ class ComparisonBlast():
 
         return
 
+def getSeq(self,fasta_file,id_list,output_fasta):
+    self.fasta_file=fasta_file
+    self.id_list=id_list
+    self.output_fasta=output_fasta
+    return os.system(f'{prog_dir}/INTERCHANGE-V.1.0/Tools/getSeq.py -f {fasta_file} -l {id_list} -o {output_fasta}')
+
 ###########################################################################################################################################
 ###########################################################################################################################################
 ###########################################################################################################################################
@@ -89,9 +95,16 @@ threads=param[3]
 comparisons=param[4]
 output_blast=param[5]
 blast_path=param[6]
-Gene_annot=param[7]
-TE_annot=param[8]
-Unknown_annot=param[9]
+species=param[7]
+scfd_fasta=param[8]
+TE_annot=param[9]
+TE_validated=param[10]
+TE_ID=param[11]
+TE_fasta=param[12]
+GENE_annot=param[13]
+GENE_validated=param[14]
+GENE_ID=param[15]
+GENE_fasta=param[16]
 
 reciprocal=Blast()
 reciprocal.makeblastdb(db,blast_path)
@@ -187,8 +200,8 @@ with open(f'{output_blast}/Busco_genes_HS.txt', 'r') as filin:
 ######################################### Selection of genes validating HS ####################################
 ###############################################################################################################
 
-Gene_HS=open(f"{Gene_annot}.temp", 'w')
-with open(f"{Gene_annot}", 'r') as filin:
+Gene_HS=open(f"{GENE_annot}.temp", 'w')
+with open(f"{GENE_annot}", 'r') as filin:
     for line in filin:
         line=line[:-1]
         line=line.split("\t")
@@ -197,15 +210,17 @@ with open(f"{Gene_annot}", 'r') as filin:
         sp=f"{sp1}-{sp2}"
         gene=line[2]
         PID=float(line[3])
-        sp1_id_reads=line[4]
-        sp2_id_reads=line[5]
+        sp1_id_scfd=line[4]
+        sp2_id_scfd=line[5]
         if sp in HS_dict.keys():
-            Gene_HS.write(f"{sp1}\t{sp2}\t{gene}\t{PID}\t{sp1_id_reads}\t{sp2_id_reads}\t{HS_dict.get(sp)}\n")
+            Gene_HS.write(f"{sp1}\t{sp2}\t{gene}\t{PID}\t{sp1_id_scfd}\t{sp2_id_scfd}\t{HS_dict.get(sp)}\n")
     filin.close()
 Gene_HS.close()
 
-Gene_HSvalidation=open(f"{Gene_annot}_HSvalidated",'w')
-with open(f"{Gene_annot}.temp", "r") as filin:
+Gene_HSvalidation=open(GENE_validated,'w')
+out_id_gene=open(GENE_ID, 'w')
+id_gene_list=[]
+with open(f"{GENE_annot}.temp", "r") as filin:
     for line in filin:
         line = line [:-1]
         line = line.split("\t")
@@ -213,17 +228,27 @@ with open(f"{Gene_annot}.temp", "r") as filin:
         sp2=line[1]
         gene=line[2]
         PID=float(line[3])
-        sp1_id_reads=line[4]
-        sp2_id_reads=line[5]
+        sp1_id_scfd=line[4]
+        sp2_id_scfd=line[5]
         HS=float(line[6])
         if PID >= HS:
             print(f"{gene} validates HS")
-            Gene_HSvalidation.write(f"{sp1}\t{sp2}\t{gene}\t{PID}\t{sp1_id_reads}\t{sp2_id_reads}\t{HS}\n")
+            Gene_HSvalidation.write(f"{sp1}\t{sp2}\t{gene}\t{PID}\t{sp1_id_scfd}\t{sp2_id_scfd}\t{HS}\n")
+            if sp1_id_scfd not in id_gene_list:
+                id_gene_list.append(sp1_id_scfd)
+            if sp2_id_scfd not in id_gene_list:
+                id_gene_list.append(sp2_id_scfd)
         else:
             print(f"{gene} not validates HS")
     filin.close()
 
 Gene_HSvalidation.close()
+
+for id in id_gene_list:
+    out_id_gene.write(id)
+    out_id_gene.close()
+
+getSeq(scfd_fasta,GENE_ID,GENE_fasta)
 
 ###############################################################################################################
 ######################################### Selection of TEs validating HS ######################################
@@ -239,14 +264,16 @@ with open(f"{TE_annot}", 'r') as filin:
         sp=f"{sp1}-{sp2}"
         te=line[2]
         PID=float(line[3])
-        sp1_id_reads=line[4]
-        sp2_id_reads=line[5]
+        sp1_id_scfd=line[4]
+        sp2_id_scfd=line[5]
         if sp in HS_dict.keys():
-            Gene_HS.write(f"{sp1}\t{sp2}\t{te}\t{PID}\t{sp1_id_reads}\t{sp2_id_reads}\t{HS_dict.get(sp)}\n")
+            TE_HS.write(f"{sp1}\t{sp2}\t{te}\t{PID}\t{sp1_id_scfd}\t{sp2_id_scfd}\t{HS_dict.get(sp)}\n")
     filin.close()
 TE_HS.close()
 
-TE_HSvalidation=open(f"{TE_annot}_HSvalidated",'w')
+TE_HSvalidation=open(TE_validated,'w')
+out_id_te=open(TE_ID, 'w')
+id_te_list=[]
 with open(f"{TE_annot}.temp", "r") as filin:
     for line in filin:
         line = line [:-1]
@@ -255,58 +282,27 @@ with open(f"{TE_annot}.temp", "r") as filin:
         sp2=line[1]
         te=line[2]
         PID=float(line[3])
-        sp1_id_reads=line[4]
-        sp2_id_reads=line[5]
+        sp1_id_scfd=line[4]
+        sp2_id_scfd=line[5]
         HS=float(line[6])
         if PID >= HS:
             print(f"{te} validates HS")
-            Gene_HSvalidation.write(f"{sp1}\t{sp2}\t{te}\t{PID}\t{sp1_id_reads}\t{sp2_id_reads}\t{HS}\n")
+            TE_HSvalidation.write(f"{sp1}\t{sp2}\t{te}\t{PID}\t{sp1_id_scfd}\t{sp2_id_scfd}\t{HS}\n")
+            if sp1_id_scfd not in id_te_list:
+                id_te_list.append(sp1_id_scfd)
+            if sp2_id_scfd not in id_te_list:
+                id_te_list.append(sp2_id_scfd)
         else:
             print(f"{te} not validates HS")
     filin.close()
 
 TE_HSvalidation.close()
 
+for id in id_te_list:
+    out_id_te.write(id)
+    out_id_te.close()
 
-###############################################################################################################
-######################################### Selection of Unknowns validating HS #################################
-###############################################################################################################
-
-Unknown_HS=open(f"{Unknown_annot}.temp", 'w')
-with open(f"{Unknown_annot}", 'r') as filin:
-    for line in filin:
-        line=line[:-1]
-        line=line.split("\t")
-        sp1=line[0]
-        sp2=line[1]
-        sp=f"{sp1}-{sp2}"
-        PID=float(line[3])
-        sp1_id_reads=line[4]
-        sp2_id_reads=line[5]
-        if sp in HS_dict.keys():
-            Gene_HS.write(f"{sp1}\t{sp2}\tUnknown\t{PID}\t{sp1_id_reads}\t{sp2_id_reads}\t{HS_dict.get(sp)}\n")
-    filin.close()
-Unknown_HS.close()
-
-Unknown_HSvalidation=open(f"{Unknown_annot}_HSvalidated",'w')
-with open(f"{Unknown_HSvalidation}.temp", "r") as filin:
-    for line in filin:
-        line = line [:-1]
-        line = line.split("\t")
-        sp1=line[0]
-        sp2=line[1]
-        PID=float(line[3])
-        sp1_id_reads=line[4]
-        sp2_id_reads=line[5]
-        HS=float(line[6])
-        if PID >= HS:
-            print(f"{sp1_id_reads} validates HS")
-            Gene_HSvalidation.write(f"{sp1}\t{sp2}\tUnknown\t{PID}\t{sp1_id_reads}\t{sp2_id_reads}\t{HS}\n")
-        else:
-            print(f"{sp1_id_reads} not validates HS")
-    filin.close()
-
-Unknown_HSvalidation.close()
+getSeq(scfd_fasta,TE_ID,TE_fasta)
 
 
 ###############################################################################################################
