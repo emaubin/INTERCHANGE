@@ -240,3 +240,5 @@ python3 ~/INTERCHANGE-V.1.0/scripts/9_High_similarity/high_similarity_param.py -
 ```
 
 ### <a name="output"></a>Output
+
+INTERCHANGE produces results in an output directory named 'HS_candidates/', where you can find two tables (GENE_HSvalidation.txt and TE_HSvalidation.txt) and two fasta files (GENE_HSvalidation.fa and TE_HSvalidation.fa) containing scaffolds shared between the 2 species which pass the high similarity criterion. 
