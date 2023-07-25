@@ -44,6 +44,9 @@ threads=args.threads
 
 output_sp=f'{output_dir}/species'
 busco_dir=f'{output_dir}/Busco_genes'
+output_assembly=f'{output_dir}/Assembly'
+output_annot=f'{output_dir}/Annotation'
+output_HS_candidates=f'{output_dir}/HS_candidates'
 
 
 if not os.path.exists(output_sp):
@@ -51,6 +54,12 @@ if not os.path.exists(output_sp):
 
 if not os.path.exists(busco_dir):
         os.makedirs(busco_dir)
+
+if not os.path.exists(output_assembly):
+        os.makedirs(output_assembly)
+
+if not os.path.exists(output_HS_candidates):
+        os.makedirs(output_HS_candidates)
 
 with open(paths, "r") as param:
     param= param.read().split("\n")
@@ -71,7 +80,7 @@ with open(f'{output_sp}/all_species_comparisons.tab','r') as filin:
         if spindex and spread not in dico_compare:
             dico_compare[spindex,spread]=[spread,spindex]
 
-print(dico_compare)
+#print(dico_compare)
 
 ##########################################################################################################################################
 ##########################################################################################################################################
@@ -91,12 +100,18 @@ for key, value in dico_compare.items():
         os.makedirs(output_blast)
     comp_blast=f"{output_blast}/{value[0]}-DB_{key[0]}-query.bln6"
     paramfile=f'{output_blast}/{value[0]}-DB_{key[0]}-query_step9.param'
-    print(db)
-    print(query)
-    print(output_blast)
-    print(comp_blast)
+    species=key[1]+'-reads_'+key[0]+'-index'
+    scfd_fasta=f"{output_assembly}/SPAdes_{key[1]}-reads_{key[0]}-index_cleaned/{species}_scaffolds.fa_sup300.fa"
+    TE_annot=f"{output_annot}/Annotation_tab.txt_candidates_TE.txt"
+    TE_validated=f"{output_HS_candidates}/TE_HSvalidation.txt"
+    TE_ID=f"{output_HS_candidates}/TE_HSvalidation.id"
+    TE_fasta=f"{output_HS_candidates}/TE_HSvalidation.fa"
+    GENE_annot=f"{output_annot}/Annotation_tab.txt_candidates_GENE.txt"
+    GENE_validated=f"{output_HS_candidates}/GENE_HSvalidation.txt"
+    GENE_ID=f"{output_HS_candidates}/GENE_HSvalidation.id"
+    GENE_fasta=f"{output_HS_candidates}/GENE_HSvalidation.fa"
     with open(paramfile, 'w') as filout:
-        filout.write(f'{db}\n{query}\n{comp_blast}\n{threads}\n{output_sp}/all_species_comparisons.tab\n{output_blast}\n{blast_path}\n')
+        filout.write(f'{db}\n{query}\n{comp_blast}\n{threads}\n{output_sp}/all_species_comparisons.tab\n{output_blast}\n{blast_path}\n{species}\n{scfd_fasta}\n{TE_annot}\n{TE_validated}\n{TE_ID}\n{TE_fasta}\n{GENE_annot}\n{GENE_validated}\n{GENE_ID}\n{GENE_fasta}')
         filout.close()
     os.system(f'python3 {prog_dir}/INTERCHANGE-V.1.0/scripts/9_High_similarity/high_similarity.py -p {paramfile} &')
     print(f"Job running : index = {key[0]} ; reads = {value[0]}")
