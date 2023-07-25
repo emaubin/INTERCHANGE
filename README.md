@@ -11,7 +11,7 @@ INTERCHANGE for horIzoNtal TransfER CHAracterization in Non-assembled GEnome is 
   - [Usage](#usage)
   - [Example](#example)
   - [Output](#output)
-- [Limitations](#limit)
+
 
 
 ## <a name="req"></a>Requirements
@@ -154,7 +154,7 @@ Hardware requirements: this pipeline is developed for Linux/Unix operating syste
 With the test dataset, we used:<br/>
     - x86-64 CPUs<br/>
     - 32 Go of system memory<br/>
-    - >= 100 Go of free hard drive space (depending to the genomes size of the analyzed species) <br/>
+    - >= 200 Go of free hard drive space (depending to the genomes size of the analyzed species) <br/>
 
 
 ## <a name="uguide"></a>Users' Guide
