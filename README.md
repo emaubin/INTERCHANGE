@@ -238,3 +238,5 @@ python3 ~/INTERCHANGE-V.1.0/scripts/8.Busco_genes/busco_identification_param.py 
 python3 ~/INTERCHANGE-V.1.0/scripts/9_High_similarity/high_similarity_param.py -p ~/INTERCHANGE-V.1.0/dependencies_paths.txt -o ~/HT_test_pipeline
 
 ```
+
+### <a name="output"></a>Output
