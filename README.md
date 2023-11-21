@@ -11,7 +11,7 @@ INTERCHANGE for horIzoNtal TransfER CHAracterization in Non-assembled GEnome is 
   - [Usage](#usage)
   - [Example](#example)
   - [Output](#output)
-- [Citing INTERCHANGE](#cite)
+- [Citation](#cite)
 
 
 
