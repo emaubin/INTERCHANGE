@@ -255,6 +255,6 @@ Species1  Species2 GENE/TE_name  PID  ID_scaffold_sp1  ID_scaffold_sp2  High_sim
 
 ## <a name="cite"></a>Citation
 
-If you use INTERCHANGE in your work, please cite:
+If you use INTERCHANGE in your work, please cite our paper:
 
 [Aubin et al., 2023](https://doi.org/10.1371/journal.pgen.1010964). Genome-wide analysis of horizontal transfer in non-model wild species from a natural ecosystem reveals new insights into genetic exchange in plants. *PLoS Genet, 19(10):e1010964*.
